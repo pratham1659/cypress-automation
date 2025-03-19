@@ -117,3 +117,8 @@ Cypress.Commands.add("loginapp", (username, password) => {
   cy.get("input[name='rememberMe']").check();
   cy.get("button[type='submit']").click();
 });
+
+Cypress.Commands.add("scrolltop", (time) => {
+  cy.get(".text-3xl.font-bold.text-blue-700").scrollIntoView({ duration: time });
+  cy.log("Scrolled to Top");
+});
