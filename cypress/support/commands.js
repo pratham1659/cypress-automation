@@ -99,3 +99,5 @@ Cypress.Commands.add("readTableAndSaveDataWithId", (tableSelector, headers, file
     cy.writeFile(filePath, data);
   });
 });
+
+Cypress.Commands.add("clickLink", lable);
