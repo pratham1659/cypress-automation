@@ -8,9 +8,23 @@ describe("Custome Commands Operations", () => {
     cy.get("a[href='/teststore']").click();
   });
 
-  it.only("Handling Links", () => {
-    cy.get(
-      "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > main:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > h3:nth-child(1)"
-    ).should("have.text", "Smartphone");
+  it("Handling Links", () => {
+    cy.get("div[id*='products']:nth-child(2) > h3").should("have.text", "Smartphone");
+  });
+
+  //uisng custom commands
+  it("Custom Links", () => {
+    cy.clickLink("Smartphone");
+  });
+
+  it("Overwriting existing command", () => {
+    cy.clickLink("Smartphone");
+  });
+
+  it.only("Login Custom Commands", () => {
+    cy.get("a[href='/loginportal']").click();
+    cy.loginapp("admin", "admin");
+    cy.get(".text-3xl.font-bold.text-blue-700").scrollIntoView({ duration: 1000 });
+    cy.get(".text-red-500.text-sm.text-center.mt-2").contains("Invalid Credentials");
   });
 });

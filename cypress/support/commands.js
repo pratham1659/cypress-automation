@@ -100,4 +100,20 @@ Cypress.Commands.add("readTableAndSaveDataWithId", (tableSelector, headers, file
   });
 });
 
-Cypress.Commands.add("clickLink", lable);
+Cypress.Commands.add("clickLink", (label) => {
+  cy.contains("h3", label)
+    .should("exist")
+    .scrollIntoView()
+    .parents('[id="products"]')
+    .should("exist")
+    .find("button")
+    .should("be.visible")
+    .click({ force: true });
+});
+
+Cypress.Commands.add("loginapp", (username, password) => {
+  cy.get("input[name='username']").type(username);
+  cy.get("input[name='password']").type(password);
+  cy.get("input[name='rememberMe']").check();
+  cy.get("button[type='submit']").click();
+});
