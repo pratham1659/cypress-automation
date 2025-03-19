@@ -1,0 +1,23 @@
+[
+  {
+    "seleniumurl": "https://selenium-test-react.vercel.app/",
+    "username": "admin",
+    "password": "admin",
+    "expected": "Invalid Credentials"
+  },
+  {
+    "username": "pratham1659",
+    "password": "pratham1659",
+    "expected": "Successfully logged in"
+  },
+  {
+    "username": "admin",
+    "password": "admin",
+    "expected": "Invalid Credentials"
+  },
+  {
+    "username": "pratham1659",
+    "password": "pratham1659",
+    "expected": "Successfully logged in"
+  }
+]
